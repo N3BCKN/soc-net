@@ -1,5 +1,14 @@
 @import 'variables.scss';
 
-body{
-	background: $main-color-light;
+.navbar{
+	background: $main-color-green;
+
+	.notification{
+		padding-top: 6px;
+	}
+
+	.btn{
+		background: $main-color-blue;
+		color: #fff;
+	}
 }

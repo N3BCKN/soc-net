@@ -1,2 +1,7 @@
-body {
-  background: #EDF5E1; }
+.navbar {
+  background: #5CDB95; }
+  .navbar .notification {
+    padding-top: 6px; }
+  .navbar .btn {
+    background: #05386B;
+    color: #fff; }

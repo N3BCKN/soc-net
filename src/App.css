@@ -1,7 +1,26 @@
 .navbar {
   background: #5CDB95; }
   .navbar .notification {
-    padding-top: 6px; }
-  .navbar .btn {
-    background: #05386B;
-    color: #fff; }
+    padding-top: 8px; }
+
+.page-footer {
+  background: #8EE4AF; }
+
+.login-image {
+  background-image: url("/img/login1.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh; }
+
+.register-image {
+  background-image: url("/img/login2.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh; }
+
+body {
+  background: #EDF5E1 !important; }
+
+.btn {
+  background: #05386B !important;
+  color: #fff !important; }

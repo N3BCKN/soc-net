@@ -1,14 +1,15 @@
 @import 'variables.scss';
 
-.navbar{
-	background: $main-color-green;
+@import 'shared/header.scss';
+@import 'shared/footer.scss';
+@import 'login/login.scss';
+@import 'register/register.scss';
 
-	.notification{
-		padding-top: 6px;
-	}
+body{
+	background: $main-color-light!important;
+}
 
-	.btn{
-		background: $main-color-blue;
-		color: #fff;
-	}
+.btn{
+		background: $main-color-blue!important;
+		color: #fff!important;
 }

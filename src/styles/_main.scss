@@ -4,9 +4,13 @@
 @import 'shared/footer.scss';
 @import 'login/login.scss';
 @import 'register/register.scss';
+@import 'profile/profile.scss';
+@import 'wall/wall.scss';
+
 
 body{
-	background: $main-color-light!important;
+	background: lighten($main-color-light,2%)!important;
+
 }
 
 .btn{

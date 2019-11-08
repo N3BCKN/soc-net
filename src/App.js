@@ -10,14 +10,15 @@ import Footer from './components/shared/Footer';
 
 import LoginPanel from './components/login/LoginPanel';
 import RegisterPanel from './components/register/RegisterPanel';
-import MainBoard from './components/mainBoard/MainBoard';
-import Profile from './components/profile/Profile';
+import MainBoard from './components/main/MainBoard';
+import ProfilePanel from './components/profile/ProfilePanel';
 
 class App extends React.Component {
 
   LoginContainer(){
     return(
       <React.Fragment>
+        {/*<Route exact path="/" render={() => <Redirect to="/login" />} />*/}
         <Route exact path="/login" component={LoginPanel} />
         <Route exact path="/register" component={RegisterPanel} />
       </React.Fragment>
@@ -30,7 +31,7 @@ class App extends React.Component {
       <Header />
         <Route exact path='/' render={() =>  <Redirect to='/main' /> } />
         <Route exact path='/main' component={MainBoard} />
-        <Route exact path='/profile/:id' component={Profile}/>
+        <Route exact path='/profile/:id' component={ProfilePanel}/>
       <Footer />
       </React.Fragment>
     )
@@ -40,10 +41,15 @@ class App extends React.Component {
      return (
       <div className="App">
         <Router>
-          <Switch>
-            <Route exact path="/(login)" component={this.LoginContainer}/>
-            <Route component={this.DefaultContainer}/>
+           <Header />
+          <Switch>         
+             <Route exact path='/' render={() =>  <Redirect to='/main' /> } />
+             <Route exact path='/main' component={MainBoard} />
+             <Route exact path='/profile/:id' component={ProfilePanel}/>
+             <Route exact path="/login" component={LoginPanel} />
+             <Route exact path="/register" component={RegisterPanel} />
           </Switch>
+           <Footer />
         </Router>
       </div>
     );

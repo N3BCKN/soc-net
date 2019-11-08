@@ -1,0 +1,52 @@
+.profile-info{
+    background: $main-color-light-green!important;
+    .panel-footer{
+        min-height: 60px;
+    }
+    .btn-panel{
+        margin: 10px 10px;
+        .panel-btn-text{
+            padding: 25px;
+        }
+    }
+}
+
+.panel-responses{
+    height: 350px;
+    overflow: scroll;
+     background: $main-color-light-green!important;
+}
+
+.panel .panel-body{
+     a:link {
+      text-decoration: none!important;
+      color: $main-color-blue;
+    }
+    a:hover{
+        color: lighten($main-color-blue,15%);
+    }
+    background: $main-color-green!important;
+    border-radius: 2%!important;
+    font-size: 90%;
+    .panel-response{
+        width: 85%;
+        font-size: 85%;
+        margin: 5px 7.5% 5px 7.5%;
+    }
+    .panel-date{
+        font-size: 50%;
+    }
+}
+
+.panel-body{
+     background: $main-color-light-green!important;
+}
+
+.panel-message{
+    width: 94%;
+    margin: 5px 3% 5px 3%;
+    .panel-message-content{
+        font-size: 90%;
+    }
+
+}

@@ -3,46 +3,46 @@ import React from 'react';
 export default function Footer(){
 	return(
 
-<footer class="page-footer font-small special-color-dark pt-4">
+<footer className="page-footer font-small special-color-dark pt-4">
 
 
-  <div class="container">
+  <div className="container">
 
-  	<ul class="list-unstyled list-inline text-center py-2">
-	    <li class="list-inline-item">
-	      <h5 class="mb-1">Register for free</h5>
+  	<ul className="list-unstyled list-inline text-center py-2">
+	    <li className="list-inline-item">
+	      <h5 className="mb-1">Register for free</h5>
 	    </li>
-	    <li class="list-inline-item">
-	      <a href='' class="btn btn-outline-success btn-rounded ">Sign up!</a>
+	    <li className="list-inline-item">
+	      <a href='' className="btn btn-outline-success btn-rounded ">Sign up!</a>
 	    </li>
   	</ul>
 
   	<hr/>
 
-    <ul class="list-unstyled list-inline text-center">
-      <li class="list-inline-item">
-        <a href='' class="btn-floating btn-fb mx-1">
-          <i class="fa fa-lg fa-facebook-f"> </i>
+    <ul className="list-unstyled list-inline text-center">
+      <li className="list-inline-item">
+        <a href='' className="btn-floating btn-fb mx-1">
+          <i className="fa fa-lg fa-facebook-f"> </i>
         </a>
       </li>
-      <li class="list-inline-item">
-        <a href='' class="btn-floating btn-tw mx-1">
-          <i class="fa fa-lg fa-twitter"> </i>
+      <li className="list-inline-item">
+        <a href='' className="btn-floating btn-tw mx-1">
+          <i className="fa fa-lg fa-twitter"> </i>
         </a>
       </li>
-      <li class="list-inline-item">
-        <a href='' class="btn-floating btn-gplus mx-1">
-          <i class="fa fa-lg fa-instagram"> </i>
+      <li className="list-inline-item">
+        <a href='' className="btn-floating btn-gplus mx-1">
+          <i className="fa fa-lg fa-instagram"> </i>
         </a>
       </li>
-      <li class="list-inline-item">
-        <a href='' class="btn-floating btn-li mx-1">
-          <i class="fa fa-lg fa-linkedin"></i>
+      <li className="list-inline-item">
+        <a href='' className="btn-floating btn-li mx-1">
+          <i className="fa fa-lg fa-linkedin"></i>
         </a>
       </li>
-      <li class="list-inline-item">
-        <a href='' class="btn-floating btn-dribbble mx-1">
-          <i class="fa fa-lg fa-dribbble"> </i>
+      <li className="list-inline-item">
+        <a href='' className="btn-floating btn-dribbble mx-1">
+          <i className="fa fa-lg fa-dribbble"> </i>
         </a>
       </li>
     </ul>
@@ -52,7 +52,7 @@ export default function Footer(){
 
 
 
-  <div href='' class="footer-copyright text-center py-3">© 2019 CopyLeft:
+  <div href='' className="footer-copyright text-center py-3">© 2019 CopyLeft:
     <a> MDBootstrap.com</a>
   </div>
 

@@ -22,3 +22,18 @@
     margin-top: -12px;
     color: #999;
 }
+
+.parallax {
+  /* The image used */
+  background-image: url('https://mobirise.com/bootstrap-4-theme/assets/images/mbr-6.jpg');
+
+  /* Full height */
+  height: 100%;
+  min-height: 250px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

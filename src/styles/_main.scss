@@ -8,8 +8,9 @@
 @import 'wall/wall.scss';
 
 
-body{
+body, html{
 	background: lighten($main-color-light,2%)!important;
+	height: 100%
 
 }
 
@@ -17,3 +18,5 @@ body{
 		background: $main-color-blue!important;
 		color: #fff!important;
 }
+
+

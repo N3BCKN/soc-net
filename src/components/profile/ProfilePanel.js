@@ -12,6 +12,7 @@ export default class ProfilePanel extends Component{
 	render(){
 		return(
 <div className="container">
+<div className="parallax"><h2 className="text-white pt-5 text-center">Harry J. Hamilton</h2></div>
 <div className="container py-4 my-2 profile">
     <div className="row">
         <div className="col-md-4 pr-md-5">
@@ -62,40 +63,40 @@ export default class ProfilePanel extends Component{
                     Add to friends
                 </button>
             </section>
-            <section class="mt-4">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#wall" role="tab" aria-controls="home" aria-selected="true">
+            <section className="mt-4">
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
+                     <li className="nav-item">
+                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#wall" role="tab" aria-controls="home" aria-selected="true">
                             Wall
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
+                    <li className="nav-item">
+                        <a className="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
                             About
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                    <li className="nav-item">
+                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                             Reviews    
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                    <li className="nav-item">
+                        <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
                             Recent Projects
                         </a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" id="groups-tab" data-toggle="tab" href="#groups" role="tab" aria-controls="groups" aria-selected="false">
+                     <li className="nav-item">
+                        <a className="nav-link" id="groups-tab" data-toggle="tab" href="#groups" role="tab" aria-controls="groups" aria-selected="false">
                             Groups
                         </a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">
+                     <li className="nav-item">
+                        <a className="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">
                             Friends
                         </a>
                     </li>
                 </ul>
-                <div class="tab-content py-4" id="myTabContent">
+                <div className="tab-content py-4" id="myTabContent">
                     {/*PROFILE TABS*/}
                     <div className="tab-pane fade show active" id="wall" role="tabpanel" aria-labelledby="wall-tab">
                         <WallTimeline />

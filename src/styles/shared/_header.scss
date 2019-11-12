@@ -1,8 +1,11 @@
 .navbar{
 	background: $main-color-green;
 
-	.notification{
-		padding-top: 8px;
+	.notifications{
+		padding-top: 13px;
+	}
+	.notified{
+		color: $main-color-blue;
 	}
 	.navbar-search{
 		padding: 1.36rem;

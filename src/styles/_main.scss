@@ -20,4 +20,11 @@ body, html{
 		color: #fff!important;
 }
 
+.dropdown-menu{
+	min-width: 300px!important;
+	.dropdown-item{
+		border-bottom: 1px solid grey;
+	}
+}
+
 

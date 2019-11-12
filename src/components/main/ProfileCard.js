@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 export default function ProfileCard(props){
@@ -7,9 +8,9 @@ export default function ProfileCard(props){
 
 			<div className="card card-profile text-center">
 					  <img className="card-img-top" src="https://unsplash.it/340/160?image=354" alt=""/><div className="card-block">
-					     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="130" height="130" className="card-img-profile" alt="avatar image" />
+					     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="130" height="130" className="card-img-profile" alt="user avatar" />
 					     <h4 className="card-title">
-				      Hi, Nicola
+				     <Link to="/profile/342"> Hi, Nicola </Link>
 				    {/*  <small>Front-end designer</small>*/}
 						</h4>
 					</div>

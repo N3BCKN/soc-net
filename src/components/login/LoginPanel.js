@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 export default class LoginPanel extends Component{
 	render(){
@@ -29,7 +30,7 @@ export default class LoginPanel extends Component{
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
                                 <div class="text-center d-flex justify-content-between mt-4">
-                                <p><a href=''>Register</a></p>
+                                <Link to="/register"><p>Register</p></Link>
                                 </div>
                             </form>
                         </div>

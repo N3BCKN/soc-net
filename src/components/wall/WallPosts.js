@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import WallResponses from './WallResponses';
+import {Link} from 'react-router-dom';
 
 export default class WallPosts extends Component{
 	render(){
@@ -10,12 +11,12 @@ export default class WallPosts extends Component{
           <div className="panel-message-header pt-1 pl-3">
             <div className="panel-user-thumb pull-left">
                   <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="pull-left rounded-circle z-depth-0"
-                alt="avatar image" height={55} width={55}/>
+                alt="user avatar" height={55} width={55}/>
               </div>
               <div className="panel-user-details">
-                  <h4><a href="#" className="#">&nbsp; Margarita Elina</a>
+                  <h4><Link to="/profile/234" className="#">&nbsp; Margarita Elina</Link>
                   <br/>
-                  <span className="panel-date">7 minutes ago near Alaska, USA</span>
+                 <Link to="/post/342"> <span className="panel-date">7 minutes ago </span></Link><span className="panel-date">near Alaska, USA</span>
                   </h4>
 
                   <br />
@@ -34,8 +35,8 @@ export default class WallPosts extends Component{
           <p><a href="">Like</a>&nbsp;&nbsp;&nbsp;<a href="">Response</a></p>
           <hr />
             <div className="fb-time-action like-info">
-                      <a href="#">Jhon Due, </a>
-                      <a href="#"> Danieal Kalion </a>
+                      <Link to="/profile/234">Jhon Due, </Link>
+                      <Link to="/profile/234"> Danieal Kalion </Link>
                       <span>&nbsp; and &nbsp;</span>
                       <a href="#">40 more</a>
                       <span>&nbsp;like this &nbsp;</span>

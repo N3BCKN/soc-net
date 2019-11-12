@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import Notification from './Notification';
+import {Link} from 'react-router-dom';
 
 export default class Header extends Component{
 
 	renderNotifications(){
 		const notifications = [];
 		for(let i = 0; i < 6; i++){
-			notifications.push(<Notification />);
+			notifications.push(<Notification key={i}/>);
 		}
 
 		return notifications;
@@ -15,7 +16,7 @@ export default class Header extends Component{
 	render(){
 		return(
 		<nav className="navbar navbar-expand-lg navbar-light">
-		  <a className="navbar-brand" href="#">Soc-Net</a>
+		  <Link className="navbar-brand" to="/main">Soc-Net</Link>
 		  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span className="navbar-toggler-icon"></span>
 		  </button>
@@ -53,9 +54,9 @@ export default class Header extends Component{
 		        </a>
 		        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
 		          aria-labelledby="navbarDropdownMenuLink-55">
-		          <a className="dropdown-item" href="#">Action</a>
-		          <a className="dropdown-item" href="#">Another action</a>
-		          <a className="dropdown-item" href="#">Something else here</a>
+		          <Link className="dropdown-item" to="/">Action</Link>
+		          <Link className="dropdown-item" to="/">Another action</Link>
+		          <Link className="dropdown-item" to="/">Something else here</Link>
 		        </div>
 		      </li>
 		    </ul>

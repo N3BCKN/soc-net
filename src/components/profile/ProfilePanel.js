@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import WallTimeline from '../wall/WallTimeline';
+import {Link} from 'react-router-dom';
 
 //SECTIONS
 import About from './sections/About';
@@ -50,18 +51,18 @@ export default class ProfilePanel extends Component{
             </p>
             <p className="lead mt-4">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
             <section className="d-flex mt-5">
-                <button className="btn btn-light mr-3 mb-3">
+                <Link to="/messages" className="btn btn-light mr-3 mb-3">
                     <i className="fa fa-comments"></i>
                     Private Message
-                </button>
-                <button className="btn btn-success mr-3 mb-3">
+                </Link>
+                <Link to="/messages" className="btn btn-success mr-3 mb-3">
                     <i className="fa fa-warning"></i>
                     Report User
-                </button>
-                <button className="btn btn-primary mb-3">
+                </Link>
+                <Link to="/messages" className="btn btn-primary mb-3">
                     <i className="fa fa-check"></i>
                     Add to friends
-                </button>
+                </Link>
             </section>
             <section className="mt-4">
                 <ul className="nav nav-tabs" id="myTab" role="tablist">

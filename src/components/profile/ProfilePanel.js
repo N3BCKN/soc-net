@@ -17,7 +17,7 @@ export default class ProfilePanel extends Component{
 <div className="container py-4 my-2 profile">
     <div className="row">
         <div className="col-md-4 pr-md-5">
-            <img className="w-100 rounded-circle border" src="https://cdn.bootstrapsnippet.net/assets/image/dummy-avatar.jpg" />
+            <img alt="user avatar" className="w-100 rounded-circle border" src="https://cdn.bootstrapsnippet.net/assets/image/dummy-avatar.jpg" />
             <div className="pt-4 mt-2">
                 <section className="mb-4 pb-1">
                     <h3 className="h6 font-weight-light text-secondary text-uppercase">Work Experiences</h3>

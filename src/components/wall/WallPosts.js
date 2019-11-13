@@ -32,13 +32,13 @@ export default class WallPosts extends Component{
           </div>
           <hr />
           <div className="panel-likes px-3">
-          <p><a href="">Like</a>&nbsp;&nbsp;&nbsp;<a href="">Response</a></p>
+          <p><Link to="/">Like</Link>&nbsp;&nbsp;&nbsp;<Link to="/">Response</Link></p>
           <hr />
             <div className="fb-time-action like-info">
                       <Link to="/profile/234">Jhon Due, </Link>
                       <Link to="/profile/234"> Danieal Kalion </Link>
                       <span>&nbsp; and &nbsp;</span>
-                      <a href="#">40 more</a>
+                      <Link to="/">40 more</Link>
                       <span>&nbsp;like this &nbsp;</span>
             </div>
           </div>

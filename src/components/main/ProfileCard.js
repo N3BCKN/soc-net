@@ -20,9 +20,9 @@ export default function ProfileCard(props){
 				<div className="card-body">
 				<h5 className="card-title">Notices</h5>
 				 <ul className="list-group list-group-flush notices-list ">
-				    <li className="list-group-item display-6 notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><a href="">Read More...</a></small></li>
-				    <li className="list-group-item notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><a href="">Read More...</a></small></li>
-				    <li className="list-group-item notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><a href="">Read More...</a></small></li>
+				    <li className="list-group-item display-6 notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><Link to="/">Read More...</Link></small></li>
+				    <li className="list-group-item notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><Link to="/">Read More...</Link></small></li>
+				    <li className="list-group-item notices-element">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <small><Link to="/">Read More...</Link></small></li>
 				  </ul>
 				  </div>
 			</div>

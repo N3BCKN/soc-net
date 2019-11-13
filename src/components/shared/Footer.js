@@ -14,7 +14,7 @@ export default function Footer(){
 	      <h5 className="mb-1">Register for free</h5>
 	    </li>
 	    <li className="list-inline-item">
-	      <a href='' className="btn btn-outline-success btn-rounded ">Sign up!</a>
+	      <Link to="/" className="btn btn-outline-success btn-rounded ">Sign up!</Link>
 	    </li>
   	</ul>
 
@@ -22,29 +22,29 @@ export default function Footer(){
 
     <ul className="list-unstyled list-inline text-center">
       <li className="list-inline-item">
-        <a href='' className="btn-floating btn-fb mx-1">
+        <Link to="/" className="btn-floating btn-fb mx-1">
           <i className="fa fa-lg fa-facebook-f"> </i>
-        </a>
+        </Link>
       </li>
       <li className="list-inline-item">
-        <a href='' className="btn-floating btn-tw mx-1">
+        <Link to="/" className="btn-floating btn-tw mx-1">
           <i className="fa fa-lg fa-twitter"> </i>
-        </a>
+        </Link>
       </li>
       <li className="list-inline-item">
-        <a href='' className="btn-floating btn-gplus mx-1">
+        <Link to="/" className="btn-floating btn-gplus mx-1">
           <i className="fa fa-lg fa-instagram"> </i>
-        </a>
+        </Link>
       </li>
       <li className="list-inline-item">
-        <a href='' className="btn-floating btn-li mx-1">
+        <Link to="/" className="btn-floating btn-li mx-1">
           <i className="fa fa-lg fa-linkedin"></i>
-        </a>
+        </Link>
       </li>
       <li className="list-inline-item">
-        <a href='' className="btn-floating btn-dribbble mx-1">
+        <Link to="/" className="btn-floating btn-dribbble mx-1">
           <i className="fa fa-lg fa-dribbble"> </i>
-        </a>
+        </Link>
       </li>
     </ul>
   

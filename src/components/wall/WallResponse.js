@@ -19,7 +19,7 @@ export default class WallResponse extends Component{
             lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
             lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
             lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-              <small>7 minutes ago, </small><a href="">Like</a>&nbsp;&nbsp;&nbsp;<a href="">Response</a>
+              <small>7 minutes ago, </small><Link to="/">Like</Link>&nbsp;&nbsp;&nbsp;<Link to="/">Response</Link>
               <hr/>
           </div>
 		)

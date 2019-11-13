@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ProfileCard from '../main/ProfileCard';
 import WallPosts from './WallPosts';
-import {Link} from 'react-router-dom';
 
 export default class SinglePost extends Component{
 	render(){

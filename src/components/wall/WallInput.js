@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 
 export default class WallInput extends Component{
 	render(){
@@ -13,10 +14,10 @@ export default class WallInput extends Component{
               	<span className="panel-btn-text">Post</span>
               </button>
               <ul className="nav nav-pills">
-                  <li className="p-3"><a href="#"><i className="fa fa-map-marker"></i></a></li>
-                  <li className="p-3"><a href="#"><i className="fa fa-camera"></i></a></li>
-                  <li className="p-3"><a href="#"><i className=" fa fa-film"></i></a></li>
-                  <li className="p-3"><a href="#"><i className="fa fa-microphone"></i></a></li>
+                  <li className="p-3"><Link to="/"><i className="fa fa-map-marker"></i></Link></li>
+                  <li className="p-3"><Link to="/"><i className="fa fa-camera"></i></Link></li>
+                  <li className="p-3"><Link to="/"><i className=" fa fa-film"></i></Link></li>
+                  <li className="p-3"><Link to="/"><i className="fa fa-microphone"></i></Link></li>
               </ul>
           </footer>
       </div>

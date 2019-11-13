@@ -29,10 +29,10 @@ export default class Header extends Component{
 		   <ul className="navbar-nav ml-auto nav-flex-icons">
 		   		{/*NOTIFICATIONS*/}
 		   	   <li className="nav-item notifications">
-		   	   <a className="nav-link  waves-effect waves-light" id="navbarNotifications" data-toggle="dropdown"
+		   	   <Link to="/" className="nav-link  waves-effect waves-light" id="navbarNotifications" data-toggle="dropdown"
 		          aria-haspopup="true" aria-expanded="false">0 &nbsp;
 		          <i className="fa fa-lg fa-bell notified"></i>
-		        </a>
+		        </Link>
 		    	{/*NOTIFICATIONS DROPDOWN*/}
 		        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
 		          aria-labelledby="navbarNotifications">
@@ -41,17 +41,17 @@ export default class Header extends Component{
 		      </li>
 		       {/*MESSAGES*/}
 		      <li className="nav-item notifications">
-		        <a className="nav-link waves-effect waves-light">0 &nbsp;
+		        <Link to="/" className="nav-link waves-effect waves-light">0 &nbsp;
 		          <i className="fa fa-lg fa-envelope notified"></i>
-		        </a>
+		        </Link>
 		      </li>
 		       {/*AVATAR*/}
 		      <li className="nav-item avatar dropdown">
-		        <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+		        <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
 		          aria-haspopup="true" aria-expanded="false">
 		          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"
-		            alt="avatar image" height={55} width={55}/>
-		        </a>
+		            alt="user avatar" height={55} width={55}/>
+		        </Link>
 		        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
 		          aria-labelledby="navbarDropdownMenuLink-55">
 		          <Link className="dropdown-item" to="/">Action</Link>

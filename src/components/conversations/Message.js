@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Message(props){
-	const msgReceived = (props.index % 2 == 0 || props.index == 0) ? true : false;
+	const msgReceived = (props.index % 2 === 0 || props.index === 0) ? true : false;
 	return(
 		<div>
 		{ msgReceived ? 
@@ -15,7 +15,7 @@ export default function Message(props){
             :
          <div className="incoming_msg">
               <div className="incoming_msg_img"> 
-              	<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"/> 
+              	<img alt="user avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"/> 
               </div>
               <div className="received_msg">
                 <div className="received_withd_msg">

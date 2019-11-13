@@ -4,8 +4,6 @@ import './App.css';
 //MODULES
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
-import {Provider} from 'react-redux';
-
 // COMPONENTS
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
@@ -16,6 +14,12 @@ import MainBoard from './components/main/MainBoard';
 import SinglePost from './components/wall/SinglePost';
 import ProfilePanel from './components/profile/ProfilePanel';
 import MessageInbox from './components/conversations/MessageInbox';
+
+
+
+// REDUX
+import {Provider} from 'react-redux';
+const store = require('./reducers/').init();
 
 
 class App extends React.Component {
@@ -44,7 +48,7 @@ class App extends React.Component {
   
   render(){
      return (
-      <Provider>
+      <Provider store={store}>
         <Router>
           <div className="App">
                <Header />

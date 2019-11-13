@@ -26,7 +26,8 @@ export default class Header extends Component{
 		      <button className="btn btn-outline-success btn-rounded my-2 my-sm-0" type="submit">Search</button>
 		  </form>
 
-		   <ul className="navbar-nav ml-auto nav-flex-icons">
+		  <div class="collapse navbar-collapse">
+		   <ul className="navbar-nav ml-auto  nav-flex-icons">
 		   		{/*NOTIFICATIONS*/}
 		   	   <li className="nav-item notifications">
 		   	   <Link to="/" className="nav-link  waves-effect waves-light" id="navbarNotifications" data-toggle="dropdown"
@@ -60,6 +61,7 @@ export default class Header extends Component{
 		        </div>
 		      </li>
 		    </ul>
+		    </div>
 		</nav>
 	)
 	}

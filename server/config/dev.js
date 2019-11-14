@@ -5,5 +5,6 @@ module.exports = {
 		user: "QSJh8jT1hp",
 		password: "9ljuTbFlVa",
 		port: 3306
-	}
+	},
+	SECRET: 'wofjkmwwjoekmrgq34edkmeqred'
 }

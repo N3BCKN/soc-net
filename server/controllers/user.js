@@ -1,37 +1,71 @@
-const sql = require('../db');
-const helper = require('../helpers/auth-helpers');
-
+const sql        = require('../db');
+const Authhelper = require('../helpers/auth-helpers');
+const ErrHelper  = require('../helpers/error-helpers');
 
 exports.registerUser = function(req,res){
-
 	const {email, password, username, passwordConfirmation} = req.body;
 
 	if (!password || !email) {
-	   return res.status(422).send({errors: [{title: 'Data missing!', detail: 'Provide email and password!'}]});
+	   return res.status(422).send(ErrHelper.dataMissing());
 	}
 
 	if (password !== passwordConfirmation) {
-	    return res.status(422).send({errors: [{title: 'Invalid passsword!', detail: 'Password is not a same as confirmation!'}]});
+	    return res.status(422).send(ErrHelper.invalidPswd());
 	}
 
 	const userQuery = `SELECT * FROM User WHERE email = '${email}'`
 	sql.query(userQuery, (err, response) => {
 
-		if(err) return res.status(500).send({errors: [{title: 'Database error', detail: 'server error'}]});
+	if(err) return res.status(500).send(ErrHelper.serverErr());
 
-		if(response.length !== 0) return res.status(422).send({errors: [{title: 'Invalid Email!', detail: 'Email already exists'}]});
+	if(response.length !== 0) return res.status(422).send(ErrHelper.existance('Email'));
 
-		helper.genSalt(password).then(
-		(cryptedPassword) => {
-	
-		const registerQuery = `INSERT INTO User (email, password, username) VALUES ('${email}','${cryptedPassword}','${username}')`;
+	Authhelper.genSalt(password).then(
+	(cryptedPassword) => {
 
-			sql.query(registerQuery,(err, response)=>{
-				if(err) return res.status(500).send({errors: [{title: 'Database error', detail: 'data cannot be saved'}]});
-					return res.json({'registered': true});
-				});
-			},
-		error => {return res.status(500).send({errors: [{title: 'Database error', detail: 'data cannot be saved'}]});}
+	const registerQuery = `INSERT INTO User (email, password, username) VALUES ('${email}','${cryptedPassword}','${username}')`;
+
+	sql.query(registerQuery,(err, response)=>{
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+
+		return res.status(200).json({'registered': true});
+
+		});
+	},
+	error =>  res.status(500).send(ErrHelper.serverErr())
+	);
+});
+};
+
+
+exports.loginUser = function(req,res){
+	const {email, password} = req.body;
+
+	if(!email || !password){
+		return res.status(422).send(ErrHelper.dataMissing());
+	};
+
+	const loginQuery = `SELECT * FROM User WHERE email = '${email}'`;
+	sql.query(loginQuery, (err, response)=>{
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+
+		if(response.length === 0) return res.status(422).send(ErrHelper.notFound('User'));
+
+		Authhelper.comparePass(password, JSON.stringify(response[0].password).replace(/\"/g, ""))
+		.then(
+		(resault) => {
+		if(!resault){
+		res.status(401).send(ErrHelper.unauthorized());
+		}
+		else{
+		
+		const token = Authhelper.genToken(response[0].id,response[0].username);
+
+		res.send(token);
+
+		}
+		},
+		err =>  res.status(500).send(ErrHelper.serverErr())
 		);
 	});
 

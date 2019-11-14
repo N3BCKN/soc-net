@@ -9,5 +9,5 @@ exports.existance = (column) => { return {errors: [{title: 'Invalid Email!', det
 
 exports.notFound  = (column) => {return {errors: [{title: 'Invalid Email!', detail: `${column} not found!`}]}}
 
-exports.unauthorized = () => { return {errors: [{title: 'Unauthorized Attempt', detail: `Access Denied`}]} }
+exports.unauthorized = () => { return {errors: [{title: 'Unauthorized Attempt', detail: 'You need to loggin to get access'}]} }
 

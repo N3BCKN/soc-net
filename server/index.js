@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 //middlewares
@@ -10,9 +11,11 @@ app.use(bodyParser.json());
 //routes
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
+const responseRoutes = require('./routes/response');
 
 app.use('/api/users',userRoutes);
 app.use('/api/posts',postRoutes);
+app.use('/api/responses',responseRoutes);
 
 
 

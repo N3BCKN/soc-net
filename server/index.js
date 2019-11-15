@@ -13,11 +13,13 @@ const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 const responseRoutes = require('./routes/response');
 const bioRoutes = require('./routes/bio');
+const friendsRoutes = require('./routes/friends');
 
 app.use('/api/users',userRoutes);
 app.use('/api/posts',postRoutes);
 app.use('/api/responses',responseRoutes);
 app.use('/api/bio',bioRoutes);
+app.use('/api/friends',friendsRoutes);
 
 
 

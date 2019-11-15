@@ -11,9 +11,7 @@ router.post('/new', Authhelper.authMiddleware, PostsCtrl.newPost);
 // @route /api/posts/index
 // @desc Fetch multiple posts
 // @access private
-router.get('/index', (req,res)=>{
-
-});
+router.get('/index', Authhelper.authMiddleware, PostsCtrl.indexPosts);
 
 // @route /api/posts/fetch
 // @desc Fetch signle post
@@ -23,9 +21,7 @@ router.get('/fetch', Authhelper.authMiddleware, PostsCtrl.fetchPost);
 // @route /api/posts/edit
 // @desc Edit post
 // @access private
-router.put('/edit', (req,res)=>{
-
-});
+router.put('/edit', Authhelper.authMiddleware, PostsCtrl.editPost);
 
 
 // @route /api/posts/delete

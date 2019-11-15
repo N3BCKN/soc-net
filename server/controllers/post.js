@@ -23,6 +23,25 @@ exports.newPost = function(req,res){
 };
 
 exports.fetchPost = function(req,res){
-	console.log(req.body);
-	res.sendStatus(200);
+	const postId = req.body.id;
+	if(!postId) return res.status(422).send(ErrHelper.dataMissing());
+
+	const postQuery = `SELECT * FROM Post WHERE id = ${postId}`;
+
+	sql.query(postQuery, (err, response) =>{
+		if(err) res.status(500).send(ErrHelper.serverErr);
+		res.json(response);
+	});
+};
+
+exports.indexPosts = function(req,res){
+	const userId = req.body.id;
+	if(!userId) return res.status(422).send(ErrHelper.dataMissing());
+
+	const postQuery = `SELECT * FROM Post WHERE user_id = ${userId}`;
+
+	sql.query(postQuery, (err, response) =>{
+		if(err) res.status(500).send(ErrHelper.serverErr);
+		res.json(response);
+	});
 };

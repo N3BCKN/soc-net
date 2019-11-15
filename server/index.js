@@ -12,10 +12,12 @@ app.use(bodyParser.json());
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 const responseRoutes = require('./routes/response');
+const bioRoutes = require('./routes/bio');
 
 app.use('/api/users',userRoutes);
 app.use('/api/posts',postRoutes);
 app.use('/api/responses',responseRoutes);
+app.use('/api/bio',bioRoutes);
 
 
 

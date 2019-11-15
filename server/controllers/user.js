@@ -28,7 +28,14 @@ exports.registerUser = function(req,res){
 	sql.query(registerQuery,(err, response)=>{
 		if(err) return res.status(500).send(ErrHelper.serverErr());
 
-		return res.status(200).json({'registered': true});
+		const bioQuery = `INSERT INTO Bio (user_id) VALUES (${response.insertId})`;
+		console.log(bioQuery);
+
+		sql.query(bioQuery,(err, response)=>{
+			console.log('im here');
+			if(err) return res.status(500).send(ErrHelper.serverErr());
+			return res.status(200).json({'registered': true});
+		});
 
 		});
 	},

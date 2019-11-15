@@ -53,8 +53,8 @@ exports.loginUser = function(req,res){
 
 		Authhelper.comparePass(password, JSON.stringify(response[0].password).replace(/\"/g, ""))
 		.then(
-		(resault) => {
-		if(!resault){
+		(result) => {
+		if(!result){
 		res.status(401).send(ErrHelper.unauthorized());
 		}
 		else{

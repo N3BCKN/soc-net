@@ -27,8 +27,6 @@ router.put('/edit', Authhelper.authMiddleware, PostsCtrl.editPost);
 // @route /api/posts/delete
 // @desc Delete post
 // @access private
-router.delete('/delete', (req,res)=>{
-
-});
+router.delete('/delete', Authhelper.authMiddleware, PostsCtrl.deletePost);
 
 module.exports = router;

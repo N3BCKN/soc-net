@@ -45,3 +45,53 @@ exports.indexPosts = function(req,res){
 		res.json(response);
 	});
 };
+
+
+
+exports.editPost = function(req,res){
+	const {content, user_id, id} = req.body;
+	const user       = res.locals.user;
+
+	if(!content || id || user_id) return res.status(422).send(ErrHelper.dataMissing());
+
+	if(user != user_id) return res.status(401).send(ErrHelper.unauthorized());
+
+	const editQuery = `UPDATE Post SET content = '${content}' WHERE id = ${id}`;
+
+	sql.query(editQuery,(err, response) => {
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+		if(response.affectedRows == 1){
+			return res.json({edited: true})	
+		}
+		else{
+			return res.status(404).send(ErrHelper.notFound());
+		}
+	});
+
+};
+
+
+exports.deletePost = function(req,res){
+	const {user_id, id} = req.body;
+	const user          = res.locals.user;
+
+	if(!id || !user_id) return res.status(422).send(ErrHelper.dataMissing());
+
+	if(user != user_id) return res.status(401).send(ErrHelper.unauthorized());
+
+	const deleteQuery = `DELETE FROM Post WHERE id = ${id}`;
+	console.log(deleteQuery);
+	sql.query(deleteQuery,(err, response) => {
+		console.log('im here');
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+		if(response.affectedRows == 1){
+			console.log('im here 2');
+			return res.json({deleted: true})	
+		}
+		else{
+			console.log('im here 3');
+			return res.status(404).send(ErrHelper.notFound('Post'));
+		}
+	});
+
+};

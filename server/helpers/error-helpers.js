@@ -5,9 +5,9 @@ exports.invalidPswd = () => { return {errors: [{title: 'Invalid passsword!', det
 
 exports.serverErr   = () => { return {errors: [{title: 'Database error', detail: 'data cannot be saved!'}]}};
 
-exports.existance = (column) => { return {errors: [{title: 'Invalid Email!', detail: `${column} already exists!`}]} }
+exports.existance = (column) => { return {errors: [{title: 'Invalid Data!', detail: `${column} already exists!`}]} }
 
-exports.notFound  = (column) => {return {errors: [{title: 'Invalid Email!', detail: `${column} not found!`}]}}
+exports.notFound  = (column) => {return {errors: [{title: 'Invalid Data!', detail: `${column} not found!`}]}}
 
 exports.unauthorized = () => { return {errors: [{title: 'Unauthorized Attempt', detail: 'You need to loggin to get access'}]} }
 

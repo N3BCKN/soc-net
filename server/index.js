@@ -14,12 +14,14 @@ const postRoutes = require('./routes/post');
 const responseRoutes = require('./routes/response');
 const bioRoutes = require('./routes/bio');
 const friendsRoutes = require('./routes/friends');
+const likesRoutes = require('./routes/like');
 
 app.use('/api/users',userRoutes);
 app.use('/api/posts',postRoutes);
 app.use('/api/responses',responseRoutes);
 app.use('/api/bio',bioRoutes);
 app.use('/api/friends',friendsRoutes);
+app.use('/api/likes',likesRoutes);
 
 
 

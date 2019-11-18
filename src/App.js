@@ -15,8 +15,6 @@ import SinglePost from './components/wall/SinglePost';
 import ProfilePanel from './components/profile/ProfilePanel';
 import MessageInbox from './components/conversations/MessageInbox';
 
-
-
 // REDUX
 import {Provider} from 'react-redux';
 const store = require('./reducers/').init();

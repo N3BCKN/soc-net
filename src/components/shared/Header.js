@@ -26,7 +26,7 @@ export default class Header extends Component{
 		      <button className="btn btn-outline-success btn-rounded my-2 my-sm-0" type="submit">Search</button>
 		  </form>
 
-		  <div class="collapse navbar-collapse">
+		  <div className="collapse navbar-collapse">
 		   <ul className="navbar-nav ml-auto  nav-flex-icons">
 		   		{/*NOTIFICATIONS*/}
 		   	   <li className="nav-item notifications">

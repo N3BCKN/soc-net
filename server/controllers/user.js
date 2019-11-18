@@ -29,10 +29,8 @@ exports.registerUser = function(req,res){
 		if(err) return res.status(500).send(ErrHelper.serverErr());
 
 		const bioQuery = `INSERT INTO Bio (user_id) VALUES (${response.insertId})`;
-		console.log(bioQuery);
 
 		sql.query(bioQuery,(err, response)=>{
-			console.log('im here');
 			if(err) return res.status(500).send(ErrHelper.serverErr());
 			return res.status(200).json({'registered': true});
 		});
@@ -62,7 +60,7 @@ exports.loginUser = function(req,res){
 		.then(
 		(result) => {
 		if(!result){
-		res.status(401).send(ErrHelper.unauthorized());
+		res.status(401).send(ErrHelper.unauthorizedUser());
 		}
 		else{
 		

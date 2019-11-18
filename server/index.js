@@ -8,6 +8,19 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
+// CORS 
+app.use((req,res, next) =>{
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers',
+	'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
+	if(req.method === 'OPTIONS'){
+		res.header('Access-Contol-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+		return res.status(200).json({});
+	}
+	next();
+});
+
 //routes
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
@@ -22,8 +35,6 @@ app.use('/api/responses',responseRoutes);
 app.use('/api/bio',bioRoutes);
 app.use('/api/friends',friendsRoutes);
 app.use('/api/likes',likesRoutes);
-
-
 
 app.listen(PORT, (err)=>{
 	if(err) throw err;

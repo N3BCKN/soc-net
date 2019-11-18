@@ -11,3 +11,5 @@ exports.notFound  = (column) => {return {errors: [{title: 'Invalid Data!', detai
 
 exports.unauthorized = () => { return {errors: [{title: 'Unauthorized Attempt', detail: 'You need to loggin to get access'}]} }
 
+exports.unauthorizedUser =() => { return {errors: [{title: 'Unauthorized Login', detail: 'Wrong email or password.'}]} }
+

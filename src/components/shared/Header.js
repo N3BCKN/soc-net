@@ -1,15 +1,15 @@
 import React,{Component} from 'react';
 import Notification from './Notification';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-export default class Header extends Component{
+class Header extends Component{
 
 	renderNotifications(){
 		const notifications = [];
 		for(let i = 0; i < 6; i++){
 			notifications.push(<Notification key={i}/>);
 		}
-
 		return notifications;
 	}
 
@@ -58,6 +58,7 @@ export default class Header extends Component{
 		          <Link className="dropdown-item" to="/">Action</Link>
 		          <Link className="dropdown-item" to="/">Another action</Link>
 		          <Link className="dropdown-item" to="/">Something else here</Link>
+		          <button onClick={this.props.handleLogout.bind(this)} className="dropdown-item"><i className="fa fa-lg fa-sign-out"/>Logout</button>
 		        </div>
 		      </li>
 		    </ul>
@@ -66,3 +67,11 @@ export default class Header extends Component{
 	)
 	}
 }
+
+function mapStateToProps(state){
+	return{
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps)(Header);

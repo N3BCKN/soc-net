@@ -15,51 +15,72 @@ import SinglePost from './components/wall/SinglePost';
 import ProfilePanel from './components/profile/ProfilePanel';
 import MessageInbox from './components/conversations/MessageInbox';
 
+import AuthService from './services/auth-service';
+
 // REDUX
 import {Provider} from 'react-redux';
+import * as actions from './actions';
 const store = require('./reducers/').init();
 
 
 class App extends React.Component {
 
-  // LoginContainer(){
-  //   return(
-  //     <React.Fragment>
-  //       {/*<Route exact path="/" render={() => <Redirect to="/login" />} />*/}
-  //       <Route exact path="/login" component={LoginPanel} />
-  //       <Route exact path="/register" component={RegisterPanel} />
-  //     </React.Fragment>
-  //   )
-  // }
+  state = {
+      loggedIn: false
+  };
 
-  // DefaultContainer(){
-  //    return(
-  //     <React.Fragment>
-  //     <Header />
-  //       <Route exact path='/' render={() =>  <Redirect to='/main' /> } />
-  //       <Route exact path='/main' component={MainBoard} />
-  //       <Route exact path='/profile/:id' component={ProfilePanel}/>
-  //     <Footer />
-  //     </React.Fragment>
-  //   )
-  // }
+  componentDidMount(){
+      this.checkUserAuth();
+  }
+
+  checkUserAuth(){
+    const loggedUser = AuthService.isAuthenticated();
+    if(loggedUser){
+    store.dispatch(actions.loginSuccess());
+    this.setState({loggedIn: true});
+    }
+  }
+
+
+  logoutUser(){
+    store.dispatch(actions.logout());
+    this.checkUserAuth();
+  }
+
+  renderAuthContent(){
+    if(this.state.loggedIn){
+      return(
+          <React.Fragment>
+          <Header handleLogout={this.logoutUser} />
+          <Route exact path='/' render={() =>  <Redirect to='/main' /> } />
+          <Route exact path='/main' component={MainBoard} />
+          <Route exact path='/post/:id' component={SinglePost} />
+          <Route exact path='/profile/:id' component={ProfilePanel}/>
+          <Route exact path='/messages/' component={MessageInbox} />
+          <Redirect to="/main" />
+          <Footer />
+          </React.Fragment>
+        )
+    }
+    else{
+      return(
+          <React.Fragment>
+          <Route exact path="/login" component={LoginPanel} />
+          <Route exact path="/register" component={RegisterPanel} />
+          <Redirect to="/login" />
+          </React.Fragment>
+        )
+    }
+  }
   
   render(){
      return (
       <Provider store={store}>
         <Router>
           <div className="App">
-               <Header />
               <Switch>         
-                 <Route exact path='/' render={() =>  <Redirect to='/main' /> } />
-                 <Route exact path='/main' component={MainBoard} />
-                 <Route exact path='/post/:id' component={SinglePost} />
-                 <Route exact path='/profile/:id' component={ProfilePanel}/>
-                 <Route exact path='/messages/' component={MessageInbox} />
-                 <Route exact path="/login" component={LoginPanel} />
-                 <Route exact path="/register" component={RegisterPanel} />
+                {this.renderAuthContent()}
               </Switch>
-               <Footer />
           </div>
         </Router>
       </Provider>

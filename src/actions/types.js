@@ -1,3 +1,3 @@
-export const DEFAULT_TYPE = "DEFAULT_TYPE";
+export const LOGOUT = "LOGOUT";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";

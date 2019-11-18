@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
@@ -14,8 +15,12 @@ class LoginPanel extends Component{
     }
 
 	render(){
-    const errors = this.props.auth.errors;
+    const {errors, isAuth} = this.props.auth;
     const { successRegister }  = this.props.location.state || false;
+
+    if(isAuth){
+        return <Redirect to={{pathname: '/', state: {}}} />
+    }
 
 	return(
 	<div className="container-fluid">

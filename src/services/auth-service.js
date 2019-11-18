@@ -7,17 +7,27 @@ class AuthService {
 		localStorage.setItem('auth_token',token);
 	}
 
+	getUserData(){
+		const userData = jwt.decode(this.fetchUserToken());
+		return{
+			id:       userData.userId,
+			username: userData.username
+		}
+	}
+
 	fetchUserToken(){
 		return localStorage.getItem('auth_token');
 	}
 
 	isValidToken(token){
-		return moment().isBefore(this.getExpiration(token));
+		return moment().isBefore(this.getTokenExpiration(token));
 	}
 
 	getUsername(){
 		return jwt.decode(this.fetchUserToken()).username;
 	}
+
+	getUserI
 
 	removeUserToken(){
 		localStorage.removeItem('auth_token');

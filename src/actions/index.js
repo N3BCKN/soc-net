@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS,LOGIN_FAILURE} from './types';
+import {LOGIN_SUCCESS,LOGIN_FAILURE, LOGOUT} from './types';
 import AuthService from '../services/auth-service';
 import axios from 'axios';
 
@@ -22,10 +22,10 @@ export const login = (loginData) => {
   };
 
   export const loginSuccess = () => {
-  		const username = AuthService.getUsername();
+  		const userData = AuthService.getUserData();
     	return{
   			type: LOGIN_SUCCESS,
-  			username
+  			userData
   		}
   };
 
@@ -35,3 +35,10 @@ export const login = (loginData) => {
   			errors
   		}
   };
+
+  export const logout = () =>{
+     AuthService.removeUserToken();
+     return{
+      type: LOGOUT
+     }
+  }

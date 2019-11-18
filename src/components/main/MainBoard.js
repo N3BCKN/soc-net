@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import WallTimeline from '../wall/WallTimeline'
 import ProfileCard from './ProfileCard';
+import {connect} from 'react-redux';
 
 
-export default class MainBoard extends Component{
+class MainBoard extends Component{
 	render(){
+		const {userData} = this.props.auth;
 		return(
 			<div className="container">
 				<div className="container py-4 my-2 profile">
@@ -13,7 +15,7 @@ export default class MainBoard extends Component{
 						<WallTimeline />
 					</div>
 					<div className="col-md-4 d-sm-block">
-						<ProfileCard />
+						<ProfileCard user={userData} />
 					</div>
 				</div>
 				</div>
@@ -21,3 +23,11 @@ export default class MainBoard extends Component{
 		)
 	}
 }
+
+function mapStateToProps(state){
+	return{
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps)(MainBoard);

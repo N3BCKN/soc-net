@@ -3,15 +3,17 @@ import moment from 'moment';
 
 class AuthService {
 
-	saveUserToken(token){
-		localStorage.setItem('auth_token',token);
+	saveUserToken(userData){
+		localStorage.setItem('auth_token',userData.token);
+		localStorage.setItem('avatar',userData.avatar);
 	}
 
 	getUserData(){
 		const userData = jwt.decode(this.fetchUserToken());
 		return{
 			id:       userData.userId,
-			username: userData.username
+			username: userData.username,
+			avatar:   localStorage.getItem('avatar')
 		}
 	}
 
@@ -31,6 +33,7 @@ class AuthService {
 
 	removeUserToken(){
 		localStorage.removeItem('auth_token');
+		localStorage.removeItem('avatar');
 	}
 
 	getTokenExpiration(token){

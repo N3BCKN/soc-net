@@ -69,9 +69,9 @@ exports.loginUser = function(req,res){
 		else{
 		
 		const token = Authhelper.genToken(response[0].id,response[0].username);
+		const avatar = JSON.stringify(response[0].avatar).replace(/\"/g, "");
 
-		res.send(token);
-
+		res.json({token,avatar});
 		}
 		},
 		err =>  res.status(500).send(ErrHelper.serverErr())

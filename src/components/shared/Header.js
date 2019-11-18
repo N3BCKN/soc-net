@@ -14,6 +14,9 @@ class Header extends Component{
 	}
 
 	render(){
+		const {id,avatar} = this.props.auth.userData;
+		console.log(avatar);
+
 		return(
 		<nav className="navbar navbar-expand-lg navbar-light">
 		  <Link className="navbar-brand" to="/main">Soc-Net</Link>
@@ -50,14 +53,13 @@ class Header extends Component{
 		      <li className="nav-item avatar dropdown">
 		        <Link to="/" className="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
 		          aria-haspopup="true" aria-expanded="false">
-		          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" className="rounded-circle z-depth-0"
+		          <img src={avatar} className="rounded-circle z-depth-0"
 		            alt="user avatar" height={55} width={55}/>
 		        </Link>
 		        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
 		          aria-labelledby="navbarDropdownMenuLink-55">
-		          <Link className="dropdown-item" to="/">Action</Link>
-		          <Link className="dropdown-item" to="/">Another action</Link>
-		          <Link className="dropdown-item" to="/">Something else here</Link>
+		          <Link className="dropdown-item" to={`/profile/${id}`}>My profile</Link>
+		          <Link className="dropdown-item" to="/"> <i className="fa fa-lg fa-gear"/>Settings</Link>
 		          <button onClick={this.props.handleLogout.bind(this)} className="dropdown-item"><i className="fa fa-lg fa-sign-out"/>Logout</button>
 		        </div>
 		      </li>

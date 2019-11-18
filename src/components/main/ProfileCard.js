@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 
 
 export default function ProfileCard(props){
+	const {id, username, avatar} = props.user;
 	return(
 		<div className="container">
-
 			<div className="card card-profile text-center">
 					  <img className="card-img-top" src="https://unsplash.it/340/160?image=354" alt=""/><div className="card-block">
-					     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="130" height="130" className="card-img-profile" alt="user avatar" />
+					     <img src={avatar} width="130" height="130" className="card-img-profile" alt="user avatar" />
 					     <h4 className="card-title">
-				     <Link to="/profile/342"> Hi, Nicola </Link>
+				     <Link to={`/profile/${id}`}> Hi, {username} </Link>
 				    {/*  <small>Front-end designer</small>*/}
 						</h4>
 					</div>

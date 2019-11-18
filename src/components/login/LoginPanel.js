@@ -20,7 +20,7 @@ class LoginPanel extends Component{
     const { successRegister }  = this.props.location.state || false;
  
     if(isAuth){
-        return window.location.reload(false);
+        return window.location.reload();
     }
 
 	return(

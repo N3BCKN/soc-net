@@ -1,7 +1,7 @@
 const INITIAL_STATE  = {
 	isAuth: false,
 	errors: [],
-	userData: ''
+	userData: {}
 };
 
 export const authReducer = (state = INITIAL_STATE, action) => {

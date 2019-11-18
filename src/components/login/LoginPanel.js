@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
+import App from '../../App';
 
 class LoginPanel extends Component{
     constructor() {
@@ -17,9 +18,9 @@ class LoginPanel extends Component{
 	render(){
     const {errors, isAuth} = this.props.auth;
     const { successRegister }  = this.props.location.state || false;
-
+ 
     if(isAuth){
-        return <Redirect to={{pathname: '/', state: {}}} />
+        return window.location.reload(false);
     }
 
 	return(
@@ -40,16 +41,12 @@ class LoginPanel extends Component{
                             <div className="alert alert-success">
                                 <p> You have been registered successfully. Please login. </p>
                             </div>}
-
                             <LoginForm submitCb={this.userLogin} errors={errors}/>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
 		)

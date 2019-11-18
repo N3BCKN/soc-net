@@ -14,6 +14,7 @@ import MainBoard from './components/main/MainBoard';
 import SinglePost from './components/wall/SinglePost';
 import ProfilePanel from './components/profile/ProfilePanel';
 import MessageInbox from './components/conversations/MessageInbox';
+import ProtectedRoute from './components/shared/ProtectedRoute';
 
 import AuthService from './services/auth-service';
 
@@ -25,9 +26,16 @@ const store = require('./reducers/').init();
 
 class App extends React.Component {
 
-  state = {
+  constructor() {
+    super();
+  
+      this.state = {
       loggedIn: false
-  };
+      };
+
+      this.checkUserAuth = this.checkUserAuth.bind(this);
+      this.logoutUser = this.logoutUser.bind(this);
+  }
 
   componentDidMount(){
       this.checkUserAuth();
@@ -44,7 +52,7 @@ class App extends React.Component {
 
   logoutUser(){
     store.dispatch(actions.logout());
-    this.checkUserAuth();
+    this.setState({loggedIn: false});
   }
 
   renderAuthContent(){

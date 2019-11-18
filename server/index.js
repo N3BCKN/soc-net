@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const db  = require('./db');
 
 const PORT = process.env.PORT || 3001;
 
@@ -20,6 +21,12 @@ app.use((req,res, next) =>{
 	}
 	next();
 });
+
+// keep mysql connection alive
+setInterval(function () {
+    db.query('SELECT 1');
+    console.log('refresh');
+}, 15000);
 
 //routes
 const userRoutes = require('./routes/user');

@@ -1,6 +1,7 @@
-const sql        = require('../db');
-const Authhelper = require('../helpers/auth-helpers');
-const ErrHelper  = require('../helpers/error-helpers');
+const sql          = require('../db');
+const Authhelper   = require('../helpers/auth-helpers');
+const ErrHelper    = require('../helpers/error-helpers');
+const AvatarHelper = require('../helpers/avatar-helper');
 
 exports.registerUser = function(req,res){
 	const {email, password, username, passwordConfirmation} = req.body;
@@ -20,10 +21,13 @@ exports.registerUser = function(req,res){
 
 	if(response.length !== 0) return res.status(422).send(ErrHelper.existance('Email'));
 
+	const avatar = AvatarHelper.getAvatar(username);
+
 	Authhelper.genSalt(password).then(
 	(cryptedPassword) => {
 
-	const registerQuery = `INSERT INTO User (email, password, username) VALUES ('${email}','${cryptedPassword}','${username}')`;
+	const registerQuery = `INSERT INTO User (email, password, username, avatar) 
+	VALUES ('${email}','${cryptedPassword}','${username}', '${avatar}')`;
 
 	sql.query(registerQuery,(err, response)=>{
 		if(err) return res.status(500).send(ErrHelper.serverErr());

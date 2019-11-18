@@ -8,6 +8,10 @@ class AuthService {
 		localStorage.setItem('avatar',userData.avatar);
 	}
 
+	getToken(){
+		return localStorage.getItem('auth_token');
+	}
+
 	getUserData(){
 		const userData = jwt.decode(this.fetchUserToken());
 		return{

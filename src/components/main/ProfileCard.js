@@ -7,7 +7,7 @@ export default function ProfileCard(props){
 	return(
 		<div className="container">
 			<div className="card card-profile text-center">
-					  <img className="card-img-top" src="https://unsplash.it/340/160?image=354" alt=""/><div className="card-block">
+					  <img className="card-img-top" src="https://miro.medium.com/max/3614/1*lLNHg_D0ehCHzRLXgpglMA.png" alt="profile board"/><div className="card-block">
 					     <img src={avatar} width="130" height="130" className="card-img-profile" alt="user avatar" />
 					     <h4 className="card-title">
 				     <Link to={`/profile/${id}`}> Hi, {username} </Link>

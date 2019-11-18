@@ -14,23 +14,30 @@ import { connect } from 'react-redux';
 
 class ProfilePanel extends Component{
 
+    state = {
+        user: {}
+    }
+
     componentDidMount(){
-        // this.props.dispatch(actions.fetchDefaultProps());
+        const profileId = this.props.match.params.id;
+        actions.fetchBio(profileId)
+        .then(user => {
+            this.setState({user});
+        })
+        .catch(errors  => console.log(errors));
     }
 
 	render(){
-
-        // const ReduxData = this.props;
-
-        // console.log(ReduxData);
+        const user = this.state.user;
+        console.log(user);   
 
 		return(
         <div className="container">
-        <div className="parallax"><h2 className="text-white pt-5 text-center">Harry J. Hamilton</h2></div>
+        <div className="parallax"><h2 className="text-white pt-5 text-center">{user.username}</h2></div>
         <div className="container py-4 my-2 profile">
             <div className="row">
                 <div className="col-md-4 pr-md-5">
-                    <img alt="user avatar" className="w-100 rounded-circle border" src="https://cdn.bootstrapsnippet.net/assets/image/dummy-avatar.jpg" />
+                    <img alt="user avatar" className="w-100 rounded-circle border" src={user.avatar} />
                     <div className="pt-4 mt-2">
                         <section className="mb-4 pb-1">
                             <h3 className="h6 font-weight-light text-secondary text-uppercase">Work Experiences</h3>
@@ -52,17 +59,17 @@ class ProfilePanel extends Component{
                 <div className="col-md-8">
                     <div className="d-flex align-items-center">
                         <h2 className="font-weight-bold m-0">
-                            Harry J. Hamilton
+                            {user.username}
                         </h2>
                         <address className="m-0 pt-2 pl-0 pl-md-4 font-weight-light text-secondary">
                             <i className="fa fa-map-marker"></i>
-                            Garden City, NY
+                             {user.address || "not specified"}
                         </address>
                     </div>
                     <p className="h5 text-primary mt-2 d-block font-weight-light">
-                        Full-Stack Programmer
+                        {user.occupation}
                     </p>
-                    <p className="lead mt-4">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                    <p className="lead mt-4">{user.credo || "not specified"}</p>
                     <section className="d-flex mt-5">
                         <Link to="/messages" className="btn btn-light mr-3 mb-3">
                             <i className="fa fa-comments"></i>
@@ -115,7 +122,7 @@ class ProfilePanel extends Component{
                             <div className="tab-pane fade show active" id="wall" role="tabpanel" aria-labelledby="wall-tab">
                                 <WallTimeline />
                             </div>
-                            <About />
+                            <About user={user} />
                             <Profile />
                             <Projects />
                             <Groups />
@@ -134,7 +141,7 @@ class ProfilePanel extends Component{
 function mapStateToProps(state){
 
     return{
-        test: state.auth.test
+        auth: state.auth
     }
 }
 

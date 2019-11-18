@@ -19,6 +19,17 @@ exports.updateBio = function(req,res){
 	 });
 };
 
+exports.fetchBio = function(req,res){
+	const userId = req.query.id;
+
+	const bioQuery = `SELECT Bio.*,User.avatar,User.username FROM Bio INNER JOIN User On Bio.user_id=User.id WHERE User.id = ${userId}`;
+	sql.query(bioQuery, (err, response)=>{
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+
+		res.json(response);
+	});
+};
+
 
 function isUndef(setectedValue){
 	return (typeof(setectedValue) !== 'undefined') ?  setectedValue : null;

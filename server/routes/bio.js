@@ -8,5 +8,10 @@ const Authhelper = require('../helpers/auth-helpers');
 // @access private
 router.put('/update', Authhelper.authMiddleware, BioCtrl.updateBio);
 
+// @route /api/bio/update
+// @desc Fetch user bio
+// @access private
+router.get('/fetch', Authhelper.authMiddleware, BioCtrl.fetchBio);
+
 
 module.exports = router;

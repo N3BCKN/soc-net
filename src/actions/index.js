@@ -1,6 +1,10 @@
 import {LOGIN_SUCCESS,LOGIN_FAILURE, LOGOUT} from './types';
 import AuthService from '../services/auth-service';
+import axiosService from '../services/axios-service';
 import axios from 'axios';
+
+
+const axiosInstance = axiosService.getInstance(); 
 
 export const register = (userData) => {
     return axios.post('/api/users/register', {...userData}).then(
@@ -42,3 +46,10 @@ export const login = (loginData) => {
       type: LOGOUT
      }
   }
+
+  export const fetchBio = (profileId) =>{
+     return axiosInstance.get('bio/fetch',{params:{id: profileId}})
+     .then(
+      res => res.data[0],
+      error => Promise.reject(error.response.data.errors))
+  };

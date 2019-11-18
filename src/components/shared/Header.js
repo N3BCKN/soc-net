@@ -58,8 +58,9 @@ class Header extends Component{
 		        </Link>
 		        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
 		          aria-labelledby="navbarDropdownMenuLink-55">
-		          <Link className="dropdown-item" to={`/profile/${id}`}>My profile</Link>
-		          <Link className="dropdown-item" to="/"> <i className="fa fa-lg fa-gear"/>Settings</Link>
+		          <Link className="dropdown-item" to={`/profile/${id}`}> My profile</Link>
+		          <Link className="dropdown-item" to="/"> <i className="fa fa-lg fa-user"/> Edit Profile</Link>
+		          <Link className="dropdown-item" to="/"> <i className="fa fa-lg fa-gear"/> Settings</Link>
 		          <button onClick={this.props.handleLogout.bind(this)} className="dropdown-item"><i className="fa fa-lg fa-sign-out"/>Logout</button>
 		        </div>
 		      </li>

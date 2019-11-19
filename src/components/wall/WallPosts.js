@@ -19,7 +19,7 @@ export default class WallPosts extends Component{
               <div className="panel-user-details">
                   <h4><Link to={`profile/${user_id}`}>&nbsp; {username}</Link>
                   <br/>
-                 <Link to="/post/342"> <span className="panel-date pl-3">{moment(created_at).fromNow()}</span></Link>
+                 <Link to={`/post/${id}`}> <span className="panel-date pl-3">{moment(created_at).fromNow()}</span></Link>
                  <span className="panel-date">&nbsp; near Alaska, USA</span>
                   </h4>
 

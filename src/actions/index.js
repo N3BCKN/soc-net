@@ -64,7 +64,7 @@ export const login = (loginData) => {
       return axiosInstance.get('posts/index',
         {params: {id: profileId, status: status}}).then(
         response => response.data,
-        err => console.log(err));
+        error => Promise.reject(error.response.data.errors));
   };
 
   export const newPost = (content,id) => {
@@ -72,5 +72,13 @@ export const login = (loginData) => {
       .then(
         response => response.data,
         error => Promise.reject(error.response.data.errors));
+  };
+
+  export const fetchOnePost = (postId) =>{
+      return axiosInstance.get('posts/fetch', {params: {id: postId}})
+      .then(
+        response => response.data,
+        error => Promise.reject(error.response.data.errors)
+        )
   };
   

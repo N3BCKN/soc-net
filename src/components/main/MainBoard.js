@@ -4,9 +4,8 @@ import ProfileCard from './ProfileCard';
 import {connect} from 'react-redux';
 
 
-class MainBoard extends Component{
+export default class MainBoard extends Component{
 	render(){
-		const {userData} = this.props.auth;
 		return(
 			<div className="container">
 				<div className="container py-4 my-2 profile">
@@ -15,7 +14,7 @@ class MainBoard extends Component{
 						<WallTimeline />
 					</div>
 					<div className="col-md-4 d-sm-block">
-						<ProfileCard user={userData} />
+						<ProfileCard />
 					</div>
 				</div>
 				</div>
@@ -24,10 +23,3 @@ class MainBoard extends Component{
 	}
 }
 
-function mapStateToProps(state){
-	return{
-		auth: state.auth
-	}
-}
-
-export default connect(mapStateToProps)(MainBoard);

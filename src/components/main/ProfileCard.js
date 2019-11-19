@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
-export default function ProfileCard(props){
-	const {id, username, avatar} = props.user;
+function ProfileCard(props){
+	const {id, username, avatar} = props.auth.userData;
 	return(
 		<div className="container">
 			<div className="card card-profile text-center">
@@ -43,3 +44,11 @@ export default function ProfileCard(props){
 		</div>
 		)
 }
+
+function mapStateToProps(state){
+	return{
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps)(ProfileCard);

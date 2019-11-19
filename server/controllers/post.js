@@ -23,10 +23,11 @@ exports.newPost = function(req,res){
 };
 
 exports.fetchPost = function(req,res){
-	const postId = req.body.id;
+	const postId = req.query.id;
 	if(!postId) return res.status(422).send(ErrHelper.dataMissing());
 
-	const postQuery = `SELECT * FROM Post WHERE id = ${postId}`;
+	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post 
+	INNER JOIN User ON Post.user_id=User.id WHERE Post.id = ${postId}`;
 
 	sql.query(postQuery, (err, response) =>{
 		if(err) res.status(500).send(ErrHelper.serverErr);

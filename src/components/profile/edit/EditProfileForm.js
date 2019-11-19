@@ -41,7 +41,7 @@ function EditProfileForm(props){
 	  	</div>
 	  	<div className="form-group">
 	    	<label>About Me</label>
-	    	<textarea name="about" rows="5"  className="rounded-0 form-control"></textarea>
+	    	<textarea name="about" rows="5" defaultValue={about || ''} className="rounded-0 form-control"></textarea>
 	  	</div>
 
         <button type="submit" className="btn btn-primary btn-block">Edit Profile</button>

@@ -59,3 +59,10 @@ export const login = (loginData) => {
     .then(response => response,
       error => Promise.reject(error.response.data.errors));
   }
+
+  export const fetchPosts = (profileId, status) => {
+      return axiosInstance.get('posts/index',
+        {params: {id: profileId, status: status}}).then(
+        response => response.data,
+        err => console.log(err));
+  };

@@ -35,10 +35,10 @@ exports.fetchPost = function(req,res){
 };
 
 exports.indexPosts = function(req,res){
-	const userId = req.body.id;
+	const userId = req.query.id;
 	if(!userId) return res.status(422).send(ErrHelper.dataMissing());
 
-	const postQuery = `SELECT * FROM Post WHERE user_id = ${userId}`;
+	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post INNER JOIN User ON Post.user_id=User.id WHERE user_id = ${userId}`;
 
 	sql.query(postQuery, (err, response) =>{
 		if(err) res.status(500).send(ErrHelper.serverErr);

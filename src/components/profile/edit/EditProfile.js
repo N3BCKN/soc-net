@@ -37,10 +37,7 @@ class EditProfile extends Component{
 	submitEdition(event){
 		event.preventDefault();
 		actions.updateBio(this.state.user)
-		.then(response => {
-			console.log(response);
-			this.setState({edited: true});
-			console.log(this.state);
+		.then(response => {this.setState({edited: true});
 		})
 		.catch(err => console.log(err));
 	}

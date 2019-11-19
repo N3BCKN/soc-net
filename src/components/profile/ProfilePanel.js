@@ -68,9 +68,10 @@ class ProfilePanel extends Component{
                         </address>
                     </div>
                     <p className="h5 text-primary mt-2 d-block font-weight-light">
-                        {user.occupation}
+                        {user.occupation || "not specified"}
                     </p>
                     <p className="lead mt-4">{user.credo || "not specified"}</p>
+                    <small className="text-muted">(Tap two times and change your description)</small>
                     <section className="d-flex mt-5">
                         <Link to="/messages" className="btn btn-light mr-3 mb-3">
                             <i className="fa fa-comments"></i>

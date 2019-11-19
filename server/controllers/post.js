@@ -76,15 +76,15 @@ exports.editPost = function(req,res){
 
 
 exports.deletePost = function(req,res){
-	const {user_id, id} = req.body;
+	const {user_id, post_id} = req.query;
 	const user          = res.locals.user;
 
-	if(!id || !user_id) return res.status(422).send(ErrHelper.dataMissing());
+	if(!post_id || !user_id) return res.status(422).send(ErrHelper.dataMissing());
 
 	if(user != user_id) return res.status(401).send(ErrHelper.unauthorized());
 
-	const deleteQuery = `DELETE FROM Post WHERE id = ${id}`;
-	console.log(deleteQuery);
+	const deleteQuery = `DELETE FROM Post WHERE id = ${post_id}`;
+	
 	sql.query(deleteQuery,(err, response) => {
 		if(err) return res.status(500).send(ErrHelper.serverErr());
 		if(response.affectedRows == 1){

@@ -4,6 +4,9 @@ import WallPosts from './WallPosts';
 import WallInput from './WallInput';
 import {connect} from 'react-redux';
 
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 class WallTimeline extends Component{
 
@@ -17,6 +20,7 @@ class WallTimeline extends Component{
 
         this.newPost = this.newPost.bind(this);
         this.onChangeInputHandler = this.onChangeInputHandler.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount(){
@@ -30,10 +34,36 @@ class WallTimeline extends Component{
         .catch(err => console.log(err));
     }
 
+    handleDelete(id){
+        confirmAlert({
+          title: 'Confirm to delete',
+          message: 'Are you sure you want to delete this post?',
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: () => {
+                actions.deletePost(id, this.props.auth.userData.id)
+                .then(response => this.mountPosts())
+                .catch(err => console.log(err));
+              }
+            },
+            {
+              label: 'No',
+              onClick: () =>  false
+            }
+          ]
+        });
+      };
+
     renderPosts(){
         if(this.state.posts.length > 0){
         return this.state.posts.map(post =>{
-            return <WallPosts key={post.id} post={post} />
+            return <WallPosts 
+            key={post.id} 
+            post={post} 
+            currentUser={this.props.auth.userData.id}
+            handleDelete = {this.handleDelete} 
+            />
         })
         }
         else{

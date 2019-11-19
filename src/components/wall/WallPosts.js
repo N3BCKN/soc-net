@@ -6,12 +6,20 @@ import moment from 'moment';
 export default class WallPosts extends Component{
 	render(){
     const {id, content, created_at, user_id, username, avatar} = this.props.post;
+    const currentUser = this.props.currentUser;
 
 		return(
 			<div className="panel pt-4">
         <div className="p-2 panel-body">
           <div className="panel-message">
           <div className="panel-message-header pt-1 pl-3">
+            {(user_id == currentUser) &&
+              <React.Fragment>
+              <button className="btn btn-danger btn-sm pull-right m-1" onClick={() => this.props.handleDelete(id)}>DELETE</button>
+              <button className="btn btn-danger btn-sm pull-right m-1">EDIT</button>
+              </React.Fragment>
+            }
+
             <div className="panel-user-thumb pull-left">
                   <img src={avatar} className="pull-left rounded-circle z-depth-0"
                 alt="user avatar" height={55} width={55}/>

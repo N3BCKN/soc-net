@@ -81,4 +81,12 @@ export const login = (loginData) => {
         error => Promise.reject(error.response.data.errors)
         )
   };
+
+  export const deletePost = (postId, userId) => {
+    return axiosInstance.delete('posts/delete',{params: {post_id: postId, user_id: userId}})
+           .then(
+          response => response.data,
+          error => Promise.reject(error.response.data.errors)
+          )
+  }
   

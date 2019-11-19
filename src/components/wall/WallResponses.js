@@ -15,11 +15,14 @@ export default class WallResponses extends Component{
 	}
 
 	renderResponses(){
-		let responses = [];
-		for(let i = 0; i < 6; i++){
-			responses.push(<WallResponse key={i} />);
+		const responses = this.props.responses;
+		if(responses.length > 0){
+			return responses.map((response,i) => {
+				return <WallResponse key={i} response={response} />
+			});	
+		}else{
+			return <h5 className="text-center p-3">No Responses Yet...</h5>
 		}
-		return responses
 	};
 
     newPost(event){

@@ -59,7 +59,6 @@ exports.indexPosts = function(req,res){
 		for(let i in posts){
 			posts[i].responses = results[i];
 		}
-		console.log(posts[0].responses);
 		return res.json(posts);
 	});
 

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import * as actions from '../../actions'
-import WallPosts from './WallPosts';
+import WallPost from './WallPost';
 import WallInput from './WallInput';
 import {connect} from 'react-redux';
 
@@ -58,7 +58,7 @@ class WallTimeline extends Component{
     renderPosts(){
         if(this.state.posts.length > 0){
         return this.state.posts.map(post =>{
-            return <WallPosts 
+            return <WallPost 
             key={post.id} 
             post={post} 
             currentUser={this.props.auth.userData.id}

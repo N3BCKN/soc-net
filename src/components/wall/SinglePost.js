@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProfileCard from '../main/ProfileCard';
 import * as actions from '../../actions';
-import WallPosts from './WallPosts';
+import WallPost from './WallPost';
 
 export default class SinglePost extends Component{
 
@@ -33,7 +33,7 @@ export default class SinglePost extends Component{
 				<div className="container py-4 my-2 profile">
 				<div className="row">
 					<div className="col-md-8 pr-md-5">
-						  <WallPosts post={this.state.post}/>
+						  <WallPost post={this.state.post}/>
 					</div>
 					<div className="col-md-4 d-sm-block">
 						<ProfileCard />

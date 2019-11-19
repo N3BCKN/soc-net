@@ -54,7 +54,7 @@ exports.editPost = function(req,res){
 	const {content, user_id, id} = req.body;
 	const user       = res.locals.user;
 
-	if(!content || id || user_id) return res.status(422).send(ErrHelper.dataMissing());
+	if(!content || !id || !user_id) return res.status(422).send(ErrHelper.dataMissing());
 
 	if(user != user_id) return res.status(401).send(ErrHelper.unauthorized());
 
@@ -84,7 +84,7 @@ exports.deletePost = function(req,res){
 	if(user != user_id) return res.status(401).send(ErrHelper.unauthorized());
 
 	const deleteQuery = `DELETE FROM Post WHERE id = ${post_id}`;
-	
+
 	sql.query(deleteQuery,(err, response) => {
 		if(err) return res.status(500).send(ErrHelper.serverErr());
 		if(response.affectedRows == 1){

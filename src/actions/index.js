@@ -89,4 +89,16 @@ export const login = (loginData) => {
           error => Promise.reject(error.response.data.errors)
           )
   }
+
+  export const editPost = (content, userId, postId) =>{
+    console.log(`${content}, ${userId}, ${postId}`);
+    return axiosInstance.put('posts/edit', 
+      {id: postId, 
+       user_id: userId,
+       content: content
+      }).then(
+        response => response.data,
+        error => Promise.reject(error.response.data.errors)
+      )
+  }
   

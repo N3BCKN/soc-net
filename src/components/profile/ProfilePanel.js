@@ -29,7 +29,7 @@ class ProfilePanel extends Component{
 
 	render(){
         const user = this.state.user;
-        console.log(user);   
+        const currentUser = this.props.auth.userData.id;
 
 		return(
         <div className="container">
@@ -38,6 +38,7 @@ class ProfilePanel extends Component{
             <div className="row">
                 <div className="col-md-4 pr-md-5">
                     <img alt="user avatar" className="w-100 rounded-circle border" src={user.avatar} />
+                    {(user.user_id == currentUser) && <Link to="/edit/profile" className="pt-2 d-flex justify-content-center btn btn-md">Edit Your Profile</Link>}
                     <div className="pt-4 mt-2">
                         <section className="mb-4 pb-1">
                             <h3 className="h6 font-weight-light text-secondary text-uppercase">Work Experiences</h3>

@@ -53,3 +53,9 @@ export const login = (loginData) => {
       res => res.data[0],
       error => Promise.reject(error.response.data.errors))
   };
+
+  export const updateBio = (userBio) => {
+    return axiosInstance.put('bio/update',{...userBio})
+    .then(response => response,
+      error => Promise.reject(error.response.data.errors));
+  }

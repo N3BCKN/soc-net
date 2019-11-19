@@ -13,6 +13,7 @@ import RegisterPanel from './components/register/RegisterPanel';
 import MainBoard from './components/main/MainBoard';
 import SinglePost from './components/wall/SinglePost';
 import ProfilePanel from './components/profile/ProfilePanel';
+import EditProfile from './components/profile/edit/EditProfile';
 import MessageInbox from './components/conversations/MessageInbox';
 import ProtectedRoute from './components/shared/ProtectedRoute';
 
@@ -64,6 +65,7 @@ class App extends React.Component {
           <Route exact path='/main' component={MainBoard} />
           <Route exact path='/post/:id' component={SinglePost} />
           <Route exact path='/profile/:id' component={ProfilePanel}/>
+          <Route exact path='/edit/profile' component={EditProfile}/>
           <Route exact path='/messages/' component={MessageInbox} />
           <Redirect to="/main" />
           <Footer />

@@ -21,7 +21,7 @@ export default class WallResponses extends Component{
 				<div className="panel-responses">
 	          		{this.renderResponses()}
 	          	</div>
-          	<WallInput placeholder={"Leave a comment"}/>
+{/*          	<WallInput placeholder={"Leave a comment"}/>*/}
           </React.Fragment>
 		)
 	}

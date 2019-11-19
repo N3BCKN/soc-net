@@ -6,7 +6,7 @@ import moment from 'moment';
 export default class WallPosts extends Component{
 	render(){
     const {id, content, created_at, user_id, username, avatar} = this.props.post;
-    console.log(avatar);
+
 		return(
 			<div className="panel pt-4">
         <div className="p-2 panel-body">

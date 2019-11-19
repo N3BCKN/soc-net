@@ -28,10 +28,10 @@ export default function About(props){
              </h6>
              <dl className="row mt-4 mb-4 pb-3">
                  <dt className="col-sm-3">Education</dt>
-                 <dd className="col-sm-9">{props.user.birtday || 'not specified'}</dd>
+                 <dd className="col-sm-9">{props.user.education || 'not specified'}</dd>
 
                  <dt className="col-sm-3">Birthday</dt>
-                 <dd className="col-sm-9">{props.user.birtday || 'not specified'}</dd>
+                 <dd className="col-sm-9">{props.user.birth_date || 'not specified'}</dd>
                             
                  <dt className="col-sm-3">Gender</dt>
                  <dd className="col-sm-9">{props.user.gender || 'not specified'}</dd>

@@ -66,3 +66,11 @@ export const login = (loginData) => {
         response => response.data,
         err => console.log(err));
   };
+
+  export const newPost = (content,id) => {
+      return axiosInstance.post('posts/new', {"content": content, "id": id})
+      .then(
+        response => response.data,
+        error => Promise.reject(error.response.data.errors));
+  };
+  

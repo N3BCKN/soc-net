@@ -38,7 +38,8 @@ exports.indexPosts = function(req,res){
 	const userId = req.query.id;
 	if(!userId) return res.status(422).send(ErrHelper.dataMissing());
 
-	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post INNER JOIN User ON Post.user_id=User.id WHERE user_id = ${userId}`;
+	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post 
+	INNER JOIN User ON Post.user_id=User.id WHERE user_id = ${userId} ORDER BY created_at DESC`;
 
 	sql.query(postQuery, (err, response) =>{
 		if(err) res.status(500).send(ErrHelper.serverErr);

@@ -11,8 +11,12 @@ class WallTimeline extends Component{
         super();
 
         this.state = {
-        posts: []
+        posts: [],
+        inputValue: ''
         };
+
+        this.newPost = this.newPost.bind(this);
+        this.onChangeInputHandler = this.onChangeInputHandler.bind(this);
     }
 
     componentDidMount(){
@@ -33,14 +37,35 @@ class WallTimeline extends Component{
         })
         }
         else{
-            return "No Posts Yet";
+            return "No Posts Yet...";
         }
+    }
+
+    newPost(event){
+        event.preventDefault();
+        const content = this.state.inputValue;
+        const id  = this.props.auth.userData.id;
+        actions.newPost(content,id)
+        .then(response => {
+            this.setState({...this.state, inputValue: ''});
+            this.mountPosts();
+        })
+        .catch(err => console.log(err));
+    }
+
+    onChangeInputHandler(val){
+        this.setState({...this.state, inputValue: val.target.value});
     }
 
 	render(){
 		return(
 		  <div>
-            <WallInput placeholder={"What's on your mind today?"}  />
+            <WallInput 
+            placeholder={"What's on your mind today?"} 
+            newPost={this.newPost}
+            inputValue={this.state.inputValue}
+            onChangeValue={this.onChangeInputHandler} 
+            />
             {this.renderPosts()}
           </div>
 		)

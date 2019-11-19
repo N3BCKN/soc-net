@@ -32,6 +32,7 @@ class WallTimeline extends Component{
         actions.fetchPosts(id,'profile')
         .then(posts => this.setState({...this.state, posts}))
         .catch(err => console.log(err));
+        this.renderPosts();
     }
 
     handleDelete(id){

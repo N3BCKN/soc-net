@@ -42,9 +42,28 @@ exports.indexPosts = function(req,res){
 	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post 
 	INNER JOIN User ON Post.user_id=User.id WHERE user_id = ${userId} ORDER BY created_at DESC`;
 
-	sql.query(postQuery, (err, response) =>{
-		if(err) res.status(500).send(ErrHelper.serverErr);
-		res.json(response);
+	sql.query(postQuery, (err, posts) =>{
+	if(err) return res.status(500).send(ErrHelper.serverErr);
+
+	// fetch responses for posts
+	let postIds = [];
+	let responseQueries = '';
+	for(let i in posts){
+		postIds.push(posts[i].id);
+		responseQueries += `SELECT Response.*, User.id, User.username, User.avatar FROM Response 
+		INNER JOIN User ON Response.user_id=User.id WHERE post_id = ? ORDER BY created_at DESC;`
+	};
+
+	sql.query(responseQueries, postIds, (err, results) => {
+		if(err) return res.status(500).send(ErrHelper.serverErr);
+		for(let i in posts){
+			posts[i].responses = results[i];
+		}
+		console.log(posts[0].responses);
+		return res.json(posts);
+	});
+
+
 	});
 };
 

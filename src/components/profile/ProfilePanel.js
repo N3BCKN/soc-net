@@ -15,7 +15,8 @@ import { connect } from 'react-redux';
 class ProfilePanel extends Component{
 
     state = {
-        user: {}
+        user: {},
+        friends: []
     }
 
     componentDidMount(){
@@ -25,6 +26,13 @@ class ProfilePanel extends Component{
             this.setState({user});
         })
         .catch(errors  => console.log(errors));
+    }
+
+    fetchFriends(){
+        const profileId = this.props.match.params.id
+        actions.fetchFriends(profileId)
+        .then(response => this.setState({...this.state, friends: response}))
+        .catch(err => console.log(err));
     }
 
 	render(){
@@ -114,7 +122,7 @@ class ProfilePanel extends Component{
                                 </a>
                             </li>
                              <li className="nav-item">
-                                <a className="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">
+                                <a onClick={this.fetchFriends.bind(this)} className="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">
                                     Friends
                                 </a>
                             </li>
@@ -128,7 +136,7 @@ class ProfilePanel extends Component{
                             <Profile />
                             <Projects />
                             <Groups />
-                            <Friends/>
+                            <Friends friends={this.state.friends}/>
                         </div>
                     </section>
                 </div>

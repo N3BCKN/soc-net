@@ -25,7 +25,6 @@ app.use((req,res, next) =>{
 // keep mysql connection alive
 setInterval(function () {
     db.query('SELECT 1');
-    console.log('refresh');
 }, 15000);
 
 //routes
@@ -42,13 +41,6 @@ app.use('/api/responses',responseRoutes);
 app.use('/api/bio',bioRoutes);
 app.use('/api/friends',friendsRoutes);
 app.use('/api/likes',likesRoutes);
-
-// FAKER
-// const Faker = require('./faker');
-// Faker.saveUser()
-
-
-
 
 app.listen(PORT, (err)=>{
 	if(err) throw err;

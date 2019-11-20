@@ -74,9 +74,15 @@ exports.indexPosts = function(req,res){
 
 	sql.query(responseQueries, postIds, (err, results) => {
 		if(err) return res.status(500).send(ErrHelper.serverErr);
-		for(let i in posts){
-			posts[i].responses = results[i];
+		if(posts.length > 1)
+		{	
+			for(let i in posts){
+				posts[i].responses = results[i];
+			}
 		}
+		else{posts[0].responses = results}
+
+
 		return res.json(posts);
 	});
 

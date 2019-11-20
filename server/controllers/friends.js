@@ -55,3 +55,18 @@ exports.deleteFriendship = function(req,res){
 	});
 
 };
+
+exports.indexFriendship = function(req,res){
+	const userId = req.query.id;
+	const user = res.locals.user;
+
+	const friendsQuery = `SELECT User.id, User.username, User.avatar FROM Friends
+	INNER JOIN User ON Friends.inviting_id=User.id
+	WHERE receiver_id = ${userId} AND accepted = true;`
+
+	sql.query(friendsQuery, (err, response)=>{
+		if(err) return res.status(500).send(ErrHelper.serverErr());
+
+		res.send(response);
+	})
+};

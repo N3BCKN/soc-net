@@ -106,6 +106,13 @@ export const login = (loginData) => {
     return axiosInstance.post('responses/new', {content: content, post_id: postId})
     .then(
       response => response.data,
-      error => Promise.reject(error.response.data.errors))
+      error => Promise.reject(error.response.data.errors));
   }
+
+  export const fetchFriends = (userId) =>{
+    return axiosInstance.get('friends/index',{params: {id: userId}})
+    .then(
+      response => response.data,
+      error => Promise.reject(error.response.data.errors));
+  };
   

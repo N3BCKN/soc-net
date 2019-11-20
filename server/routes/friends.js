@@ -2,6 +2,12 @@ const router = require('express').Router();
 const FriendsCtrl  = require('../controllers/friends');
 const Authhelper = require('../helpers/auth-helpers');
 
+
+// @route /api/friends/index
+// @desc Fetch all friends
+// @access private
+router.get('/index', Authhelper.authMiddleware, FriendsCtrl.indexFriendship);
+
 // @route /api/friends/new
 // @desc New Friendship between two users
 // @access private

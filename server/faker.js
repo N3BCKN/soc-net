@@ -48,8 +48,28 @@ saveUser(){
 		if(err) throw err;
 		console.log(`user number ${response.insertId} created!`);
 		const friendQuery = `INSERT INTO Friends (inviting_id, receiver_id, accepted) VALUES (${response.insertId}, 42, true)`;
+
 		sql.query(friendQuery, (err, res) => {
+			if(err) throw err;
 			console.log(`friendship with ${response.insertId} established!`);
+			const postQuery = `INSERT INTO Post (content, user_id) VALUES ('${faker.lorem.sentences()}', ${response.insertId})`;
+
+			sql.query(postQuery, (err, postRes)=>{
+			if(err) throw err;
+			console.log(`User:id ${response.insertId} post created with id: ${postRes.insertId}!`);
+
+			const usersRandQuery = `SELECT id FROM User ORDER BY RAND() LIMIT 4;`
+			sql.query(usersRandQuery, (err, randResponse)=>{
+			if(err) throw err;
+
+				const responsesQuery = `INSERT INTO Response (content, post_id, user_id) VALUES ('${faker.lorem.sentences()}', ${postRes.insertId}, ${randResponse[0].id})`;
+				sql.query(responsesQuery, (err, doneResponse)=>{
+				if(err) throw err;
+				console.log(`response number ${response.insertId} done!`);
+				});
+			});
+
+			});
 		});
 	});
 

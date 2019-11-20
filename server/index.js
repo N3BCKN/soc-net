@@ -43,6 +43,13 @@ app.use('/api/bio',bioRoutes);
 app.use('/api/friends',friendsRoutes);
 app.use('/api/likes',likesRoutes);
 
+// FAKER
+// const Faker = require('./faker');
+// Faker.saveUser()
+
+
+
+
 app.listen(PORT, (err)=>{
 	if(err) throw err;
 

@@ -108,7 +108,7 @@
       padding: 25px; }
 
 .panel-responses {
-  height: 350px;
+  max-height: 350px;
   overflow: scroll;
   background: #8EE4AF !important; }
 
@@ -136,7 +136,7 @@
   width: 94%;
   margin: 5px 3% 5px 3%; }
   .panel-message .panel-message-content {
-    font-size: 90%; }
+    font-size: 105%; }
 
 .container {
   max-width: 1170px;

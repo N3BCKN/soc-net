@@ -9,7 +9,7 @@ exports.newResponse = function(req,res){
 
 	const respQuery = `INSERT INTO Response (content, post_id, user_id) VALUES ('${content}', ${post_id}, ${user})`;
 
-	sql.query(respQuery,(err, response) => {
+	sql.query(respQuery,(err, response, field) => {
 		if(err) return res.status(500).send(ErrHelper.serverErr());
 
 		if(response.affectedRows == 1){

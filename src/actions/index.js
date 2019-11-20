@@ -101,4 +101,11 @@ export const login = (loginData) => {
         error => Promise.reject(error.response.data.errors)
       )
   }
+
+  export const newResponse = (content, postId) =>{
+    return axiosInstance.post('responses/new', {content: content, post_id: postId})
+    .then(
+      response => response.data,
+      error => Promise.reject(error.response.data.errors))
+  }
   

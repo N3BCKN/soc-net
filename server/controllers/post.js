@@ -29,9 +29,27 @@ exports.fetchPost = function(req,res){
 	const postQuery = `SELECT Post.*, User.username, User.avatar FROM Post 
 	INNER JOIN User ON Post.user_id=User.id WHERE Post.id = ${postId}`;
 
-	sql.query(postQuery, (err, response) =>{
-		if(err) res.status(500).send(ErrHelper.serverErr);
-		res.json(response);
+	sql.query(postQuery, (err, post) =>{
+	if(err) res.status(500).send(ErrHelper.serverErr);
+
+	const responseQuery = `SELECT Response.*, User.id, User.username, User.avatar FROM Response 
+	INNER JOIN User ON Response.user_id=User.id WHERE post_id = ${post[0].id} ORDER BY created_at ASC;`
+
+	sql.query(responseQuery, (err, responses) => {
+	if(err) res.status(500).send(ErrHelper.serverErr);
+		if(responses.length > 1){
+			post[0].responses = {};
+			post[0].responses = responses;
+		}
+		else{
+			post[0].responses = [];
+			post[0].responses.push(responses);
+		}
+
+
+		return res.json(post);
+	});
+
 	});
 };
 
@@ -51,7 +69,7 @@ exports.indexPosts = function(req,res){
 	for(let i in posts){
 		postIds.push(posts[i].id);
 		responseQueries += `SELECT Response.*, User.id, User.username, User.avatar FROM Response 
-		INNER JOIN User ON Response.user_id=User.id WHERE post_id = ? ORDER BY created_at DESC;`
+		INNER JOIN User ON Response.user_id=User.id WHERE post_id = ? ORDER BY created_at ASC;`
 	};
 
 	sql.query(responseQueries, postIds, (err, results) => {

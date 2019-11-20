@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 export default class WallInput extends Component{
 	render(){
     const placeholder = this.props.placeholder;
-    console.log(this.props.inputValue);
+    
 		return(
 		 <div className="panel profile-info">
           <form onSubmit={this.props.newPost}>

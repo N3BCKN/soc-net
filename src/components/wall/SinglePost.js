@@ -9,7 +9,9 @@ export default class SinglePost extends Component{
 	  super();
 	
 	  this.state = {
-	  	post: {}
+	  	post: {
+	  		responses: []
+	  	}
 	  };
 	}
 
@@ -23,6 +25,7 @@ export default class SinglePost extends Component{
 		actions.fetchOnePost(post_id)
 		.then(post => {
 			this.setState({post: post[0]})
+
 		})
 		.catch(err => console.log(err));
 	}

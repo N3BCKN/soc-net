@@ -100,7 +100,7 @@ export default class WallPost extends Component{
           </div>
           <hr />
           {/*RESPONSES*/}
-          <WallResponses responses = {this.props.post.responses} />
+          <WallResponses responses = {this.props.post.responses} postId = {this.props.post.id}/>
         </div>
     </div>
 		)
